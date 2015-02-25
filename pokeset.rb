@@ -42,7 +42,7 @@ class Pokeset
   end
 
   def to_s
-    "#{@set.join ', '}, for a total length of #{length} pokemon and #{total_length} characters"
+    @string ||= "#{@set.join ', '}, for a total length of #{length} pokemon and #{total_length} characters"
   end
 
   def missing_char_count

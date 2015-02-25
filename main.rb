@@ -1,3 +1,4 @@
+
 require 'benchmark'
 require_relative 'pokedex'
 require_relative 'pokeset'
@@ -8,7 +9,6 @@ ALPHABET = 2**26 -1
 @dex = Pokedex.new
 
 @min_set = Pokeset.new(@dex.all)
-@min_sets = [@min_set]
 
 def add_next_to_set(orig_set)
   @dex.map[(@dex.chars_order - orig_set.chars)[0]].each do |pokemon|

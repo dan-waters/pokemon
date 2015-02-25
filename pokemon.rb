@@ -29,11 +29,11 @@ class Pokemon
     end
   end
 
-  def usefulness(order_set)
-    @usefulness ||= chars.map{|ch| order_set.index(ch)}.inject(:+)
+  def usefulness(order_map)
+    @usefulness ||= chars.map { |ch| order_map[ch] }.inject(:+)
   end
 
   def to_s
-    "#{@name}. Code: #{code}"
+    @string||= "#{@name}. Code: #{code}"
   end
 end

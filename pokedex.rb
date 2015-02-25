@@ -17,9 +17,9 @@ class Pokedex
         end
       end
     end
-    @map = Hash[@map.sort_by { |k, v| v.length }]
+    @map = Hash[@map.sort_by { |_, v| v.length }]
     @map.each do |k, v|
-      @map[k] = v.sort { |a, b| (a.usefulness(chars_order) <=> b.usefulness(chars_order))}
+      @map[k] = v.sort { |a, b| (a.usefulness(chars_order_map) <=> b.usefulness(chars_order_map))}
     end
   end
 
@@ -32,6 +32,10 @@ class Pokedex
   end
 
   def chars_order
-    @map.keys
+    @keys ||= @map.keys
+  end
+
+  def chars_order_map
+    @chars_order_map ||= Hash[@map.keys.map.with_index{|x, i| [x, i]}]
   end
 end
