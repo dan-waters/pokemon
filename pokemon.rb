@@ -30,7 +30,7 @@ class Pokemon
   end
 
   def usefulness(order_map)
-    @usefulness ||= chars.map { |ch| order_map[ch] }.inject(:+)
+    @usefulness ||= chars.map { |ch| order_map[ch] }.inject(:+) / unique_chars.length
   end
 
   def to_s

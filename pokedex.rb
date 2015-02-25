@@ -3,10 +3,10 @@ require 'open-uri'
 require_relative 'pokemon'
 
 class Pokedex
-  def initialize
+  def initialize(file_name)
     @all = []
     @map = {}
-    JSON.parse(open('pokemon.txt').read).map do |p|
+    JSON.parse(open(file_name).read).map do |p|
       pokemon = Pokemon.new(p)
       @all << pokemon
       pokemon.unique_chars.each do |char|
@@ -36,6 +36,6 @@ class Pokedex
   end
 
   def chars_order_map
-    @chars_order_map ||= Hash[@map.keys.map.with_index{|x, i| [x, i]}]
+    @chars_order_map ||= Hash[@map.map{|x, i| [x, i.length]}]
   end
 end
