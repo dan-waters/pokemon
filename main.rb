@@ -4,7 +4,7 @@ require_relative 'pokeset'
 @start_time = Time.now
 
 ALPHABET = 2**26 - 1
-@dex = Pokedex.new('pokemon.txt')
+@dex = Pokedex.new(ARGV[0] || 'pokemon.txt')
 
 @min_set = Pokeset.new(@dex.all)
 
