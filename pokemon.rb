@@ -34,6 +34,6 @@ class Pokemon
   end
 
   def to_s
-    @string ||= "Name: #{@name}, Code: #{code}"
+    @string ||= "Name: #{@name}, Code: #{code.to_s(2)}"
   end
 end
